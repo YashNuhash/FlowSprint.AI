@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Updated to dark gray theme #232323, removed all purple/violet colors */
+    --background: 0 0% 14%; /* #232323 base - dark gray */
+    --foreground: 0 0% 98%; /* Bright text for strong contrast */
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 85%;
+    --muted-foreground-light: 0 0% 75%;
+    --muted-foreground-dark: 0 0% 80%;
+
+    --card: 0 0% 16%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 14%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary colors changed to grayscale - no more purple/violet */
+    --primary: 0 0% 95%; /* Light gray for buttons */
+    --primary-foreground: 0 0% 10%; /* Dark text on light buttons */
+    --primary-dark: 0 0% 25%; /* Dark gray */
+    --primary-light: 0 0% 85%; /* Light gray */
+
+    /* Secondary Accent Colors */
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 20%;
+
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 98%;
+
+    --border: 0 0% 30%;
+    --border-light: 0 0% 35%;
+    --border-dark: 0 0% 25%;
+
+    --ring: 0 0% 95%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added floating nodes animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-30px) translateX(5px);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-40px) translateX(-20px) rotate(5deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(30px) translateX(15px);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 12s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 10s ease-in-out infinite;
+}
