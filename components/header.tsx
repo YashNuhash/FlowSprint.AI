@@ -1,13 +1,16 @@
 "use client"
 
 import type React from "react"
+import { useSession, signOut } from "next-auth/react"
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, User } from "lucide-react"
+import { Menu, User, LogOut } from "lucide-react"
 import Link from "next/link"
 
 export function Header() {
+  const { data: session, status } = useSession()
+  
   const navItems = [
     { name: "Features", href: "#features-section" },
     { name: "Pricing", href: "#pricing-section" },
@@ -28,7 +31,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
-            <span className="text-foreground text-xl font-semibold">Pointer</span>
+            <span className="text-foreground text-xl font-semibold">FlowSprint</span>
           </div>
           <nav className="hidden md:flex items-center gap-2">
             {navItems.map((item) => (
@@ -44,15 +47,42 @@ export function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-3">
-          <Link href="/api/auth/signin" className="hidden md:block">
-            <Button
-              variant="ghost"
-              className="flex items-center gap-2 text-foreground hover:text-foreground hover:bg-accent px-4 py-2 rounded-full font-medium"
-            >
-              <User className="h-5 w-5" />
-              <span>Sign In / Sign Up</span>
-            </Button>
-          </Link>
+          {status === "loading" ? (
+            <div className="hidden md:block">
+              <Button variant="ghost" disabled className="px-4 py-2 rounded-full">
+                Loading...
+              </Button>
+            </div>
+          ) : session ? (
+            <div className="hidden md:flex items-center gap-3">
+              <Link href="/dashboard">
+                <Button variant="ghost" className="flex items-center gap-2 px-4 py-2 rounded-full font-medium">
+                  {session.user?.image && (
+                    <img src={session.user.image} alt="Profile" className="w-6 h-6 rounded-full" />
+                  )}
+                  <span>{session.user?.name || "Dashboard"}</span>
+                </Button>
+              </Link>
+              <Button
+                variant="ghost"
+                onClick={() => signOut()}
+                className="flex items-center gap-2 px-4 py-2 rounded-full font-medium"
+              >
+                <LogOut className="h-4 w-4" />
+                <span>Sign Out</span>
+              </Button>
+            </div>
+          ) : (
+            <Link href="/auth/signin" className="hidden md:block">
+              <Button
+                variant="ghost"
+                className="flex items-center gap-2 text-foreground hover:text-foreground hover:bg-accent px-4 py-2 rounded-full font-medium"
+              >
+                <User className="h-5 w-5" />
+                <span>Sign In / Sign Up</span>
+              </Button>
+            </Link>
+          )}
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon" className="text-foreground">
@@ -75,12 +105,31 @@ export function Header() {
                     {item.name}
                   </Link>
                 ))}
-                <Link href="/api/auth/signin" className="w-full mt-4">
-                  <Button className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
-                    <User className="h-5 w-5" />
-                    <span>Sign In / Sign Up</span>
-                  </Button>
-                </Link>
+                {session ? (
+                  <div className="flex flex-col gap-4 mt-4">
+                    <Link href="/dashboard" className="w-full">
+                      <Button className="w-full flex items-center justify-center gap-2 px-6 py-2 rounded-full font-medium">
+                        <User className="h-5 w-5" />
+                        <span>Dashboard</span>
+                      </Button>
+                    </Link>
+                    <Button
+                      onClick={() => signOut()}
+                      variant="outline"
+                      className="w-full flex items-center justify-center gap-2 px-6 py-2 rounded-full font-medium"
+                    >
+                      <LogOut className="h-5 w-5" />
+                      <span>Sign Out</span>
+                    </Button>
+                  </div>
+                ) : (
+                  <Link href="/auth/signin" className="w-full mt-4">
+                    <Button className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
+                      <User className="h-5 w-5" />
+                      <span>Sign In / Sign Up</span>
+                    </Button>
+                  </Link>
+                )}
               </nav>
             </SheetContent>
           </Sheet>
