@@ -1,6 +1,5 @@
 import React from "react"
 import { Button } from "@/components/ui/button"
-import { Header } from "./header"
 import { FloatingNodes } from "./floating-nodes"
 import Link from "next/link"
 
@@ -30,7 +29,7 @@ export function HeroSection() {
               width="1200"
               height="812"
             >
-              <rect x="10" y="-0.84668" width="1200" height="811.693" fill="url(#paint0_linear_186_1134)" />
+              <rect x="10" y="-0.84668" width="1200" height="811.693" fill="hsl(var(--background))" fillOpacity="0.95" />
             </mask>
             <g mask="url(#mask0_186_1134)">
               {/* Grid Rectangles */}
@@ -304,6 +303,16 @@ export function HeroSection() {
             </g>
           </g>
 
+          {/* Dark overlay to prevent any white corners */}
+          <rect
+            x="800"
+            y="600"
+            width="420"
+            height="210"
+            fill="hsl(var(--background))"
+            fillOpacity="0.9"
+          />
+          
           <rect
             x="0.5"
             y="0.5"
@@ -375,8 +384,9 @@ export function HeroSection() {
               y2="632.086"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="hsl(var(--foreground))" stopOpacity="0" />
-              <stop offset="1" stopColor="hsl(var(--muted-foreground))" />
+              <stop stopColor="hsl(var(--background))" stopOpacity="0" />
+              <stop offset="0.8" stopColor="hsl(var(--background))" stopOpacity="0.1" />
+              <stop offset="1" stopColor="hsl(var(--background))" stopOpacity="0.3" />
             </linearGradient>
             <linearGradient
               id="paint1_linear_186_1134"
@@ -386,9 +396,9 @@ export function HeroSection() {
               y2="1248.85"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="hsl(var(--primary-dark))" />
-              <stop offset="0.578125" stopColor="hsl(var(--primary))" />
-              <stop offset="1" stopColor="hsl(var(--primary-light))" />
+              <stop stopColor="hsl(220 30% 20%)" stopOpacity="0.6" />
+              <stop offset="0.578125" stopColor="hsl(220 25% 15%)" stopOpacity="0.4" />
+              <stop offset="1" stopColor="hsl(var(--background))" stopOpacity="0.1" />
             </linearGradient>
             <linearGradient
               id="paint2_linear_186_1134"
@@ -398,9 +408,9 @@ export function HeroSection() {
               y2="1184.85"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="hsl(var(--primary-dark))" />
-              <stop offset="0.578125" stopColor="hsl(var(--primary))" />
-              <stop offset="1" stopColor="hsl(var(--primary-light))" />
+              <stop stopColor="hsl(220 25% 18%)" stopOpacity="0.5" />
+              <stop offset="0.578125" stopColor="hsl(220 20% 12%)" stopOpacity="0.3" />
+              <stop offset="1" stopColor="hsl(var(--background))" stopOpacity="0.05" />
             </linearGradient>
             <linearGradient
               id="paint3_linear_186_1134"
@@ -410,9 +420,9 @@ export function HeroSection() {
               y2="1104.85"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="hsl(var(--primary-dark))" />
-              <stop offset="0.578125" stopColor="hsl(var(--primary))" />
-              <stop offset="1" stopColor="hsl(var(--primary-light))" />
+              <stop stopColor="hsl(220 28% 18%)" stopOpacity="0.4" />
+              <stop offset="0.578125" stopColor="hsl(220 22% 12%)" stopOpacity="0.2" />
+              <stop offset="1" stopColor="hsl(var(--background))" stopOpacity="0.02" />
             </linearGradient>
             <radialGradient
               id="paint4_radial_186_1134"
@@ -422,9 +432,9 @@ export function HeroSection() {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(989.13 557.24) rotate(47.9516) scale(466.313 471.424)"
             >
-              <stop stopColor="hsl(var(--primary-dark))" />
-              <stop offset="0.157789" stopColor="hsl(var(--primary))" />
-              <stop offset="1" stopColor="hsl(var(--primary-light))" />
+              <stop stopColor="hsl(220 25% 15%)" stopOpacity="0.3" />
+              <stop offset="0.157789" stopColor="hsl(220 20% 10%)" stopOpacity="0.15" />
+              <stop offset="1" stopColor="hsl(var(--background))" stopOpacity="0" />
             </radialGradient>
             <clipPath id="clip0_186_1134">
               <rect width="1220" height="810" rx="16" fill="hsl(var(--foreground))" />
@@ -434,11 +444,6 @@ export function HeroSection() {
       </div>
 
       <FloatingNodes />
-
-      {/* Header positioned at top of hero container */}
-      <div className="absolute top-0 left-0 right-0 z-20">
-        <Header />
-      </div>
 
       <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[588px] mt-16 md:mt-[120px] lg:mt-[160px] px-4">
         <h1 className="text-foreground text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight">

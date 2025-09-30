@@ -1,3 +1,4 @@
+import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { DashboardPreview } from "@/components/dashboard-preview"
 import { SocialProof } from "@/components/social-proof"
@@ -13,6 +14,7 @@ import { AnimatedSection } from "@/components/animated-section"
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden pb-0">
+      <Header />
       <div className="relative z-10">
         <main className="max-w-[1320px] mx-auto relative">
           <HeroSection />
