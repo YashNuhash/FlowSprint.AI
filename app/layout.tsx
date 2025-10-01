@@ -4,6 +4,7 @@ import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import AuthProvider from '../components/auth-provider'
 import './globals.css'
+import '@xyflow/react/dist/style.css'
 
 export const metadata: Metadata = {
   title: 'FlowSprint - AI-Powered Project Planning',
