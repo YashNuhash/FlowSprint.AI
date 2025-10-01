@@ -55,7 +55,7 @@ export function Header() {
             </div>
           ) : session ? (
             <div className="hidden md:flex items-center gap-3">
-              <Link href="/dashboard">
+              <Link href="/Dashboard">
                 <Button variant="ghost" className="flex items-center gap-2 px-4 py-2 rounded-full font-medium">
                   {session.user?.image && (
                     <img src={session.user.image} alt="Profile" className="w-6 h-6 rounded-full" />
@@ -107,7 +107,7 @@ export function Header() {
                 ))}
                 {session ? (
                   <div className="flex flex-col gap-4 mt-4">
-                    <Link href="/dashboard" className="w-full">
+                    <Link href="/Dashboard" className="w-full">
                       <Button className="w-full flex items-center justify-center gap-2 px-6 py-2 rounded-full font-medium">
                         <User className="h-5 w-5" />
                         <span>Dashboard</span>

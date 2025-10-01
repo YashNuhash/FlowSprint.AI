@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession, signIn } from "next-auth/react"
 import { Button } from "@/components/ui/button"
+import { useProject } from "@/hooks/useProject"
 
 interface CreateProjectFormData {
   name: string;
@@ -14,6 +15,7 @@ interface CreateProjectFormData {
 function CreateProjectForm() {
   const router = useRouter();
   const { data: session } = useSession();
+  const { createProject, loading } = useProject();
 
   const [formData, setFormData] = useState<CreateProjectFormData>({
     name: '',
@@ -22,7 +24,6 @@ function CreateProjectForm() {
   });
 
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
-  const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const validateForm = (): boolean => {
@@ -53,7 +54,6 @@ function CreateProjectForm() {
     }
 
     setError(null);
-    setIsGenerating(true);
 
     try {
       // Prepare project data for backend creation
@@ -84,19 +84,26 @@ function CreateProjectForm() {
         tags: []
       };
 
-      console.log('Creating project with data:', projectData);
+      console.log('🚀 Creating project with real backend:', projectData);
       
-      // Simulate project creation
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Use the real backend API via useProject hook
+      const result = await createProject(projectData);
       
-      const projectId = 'mock-project-' + Date.now();
-      router.push(`/editor/${projectId}`);
+      if (result && result.success) {
+        const projectId = result.project._id || result.project.id;
+        console.log('✅ Project created successfully with ID:', projectId);
+        
+        // Store project data in localStorage as backup for development
+        localStorage.setItem(`project-${projectId}`, JSON.stringify(result.project));
+        
+        router.push(`/Editor/${projectId}`);
+      } else {
+        throw new Error('Failed to create project');
+      }
 
     } catch (err) {
-      console.error('Project creation failed:', err);
+      console.error('❌ Project creation failed:', err);
       setError(err instanceof Error ? err.message : 'An unknown error occurred');
-    } finally {
-      setIsGenerating(false);
     }
   };
 
@@ -154,7 +161,7 @@ function CreateProjectForm() {
                   validationErrors.name ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="e.g., Task Management App"
-                disabled={isGenerating}
+                disabled={loading}
               />
               {validationErrors.name && (
                 <p className="text-red-500 text-sm">{validationErrors.name}</p>
@@ -171,11 +178,11 @@ function CreateProjectForm() {
                 value={formData.description}
                 onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
                 rows={4}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-colors ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-colors text-gray-900 bg-white ${
                   validationErrors.description ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="Describe what your project does, its main purpose, and target users..."
-                disabled={isGenerating}
+                disabled={loading}
                 maxLength={500}
               />
               <div className="flex justify-between">
@@ -202,9 +209,9 @@ function CreateProjectForm() {
                     type="text"
                     value={feature}
                     onChange={(e) => handleFeatureChange(index, e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-gray-900 bg-white"
                     placeholder={`Feature ${index + 1}${index === 0 ? ' (required)' : ' (optional)'}`}
-                    disabled={isGenerating}
+                    disabled={loading}
                   />
                 ))}
               </div>
@@ -233,7 +240,7 @@ function CreateProjectForm() {
             )}
 
             {/* Loading State */}
-            {isGenerating && (
+            {loading && (
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <div className="flex items-center">
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-600"></div>
@@ -252,15 +259,15 @@ function CreateProjectForm() {
             {/* Submit Button */}
             <Button
               type="submit"
-              disabled={isGenerating}
+              disabled={loading}
               size="lg"
               className={`w-full text-white font-medium transition-colors ${
-                isGenerating
+                loading
                   ? 'bg-gray-400 cursor-not-allowed'
                   : 'bg-gray-800 hover:bg-gray-700 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2'
               }`}
             >
-              {isGenerating ? 'Creating Project...' : 'Create Project with AI'}
+              {loading ? 'Creating Project...' : 'Create Project with AI'}
             </Button>
           </form>
         </div>
