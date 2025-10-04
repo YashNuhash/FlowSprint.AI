@@ -6,34 +6,34 @@ import { ChevronDown } from "lucide-react"
 
 const faqData = [
   {
-    question: "What is Pointer and who is it for?",
+    question: "What is FlowSprint and who is it for?",
     answer:
-      "Pointer is an AI-powered development platform designed for developers, teams, and organizations who want toaccelerate their coding workflow. It's perfect for both individual developers looking to enhance their productivity and teams seeking seamless collaboration tools.",
+      "FlowSprint is an AI-powered project planning and code generation platform designed for developers, product managers, and teams who want to accelerate their development workflow. It's perfect for those who want to quickly turn ideas into structured projects with comprehensive PRDs, mindmaps, and production-ready code.",
   },
   {
-    question: "How does Pointer's AI code review work?",
+    question: "How does FlowSprint's AI PRD generation work?",
     answer:
-      "Our AI analyzes your code in real-time, providing intelligent suggestions for improvements, catching potential bugs, and ensuring best practices. It learns from your coding patterns and adapts to your team's standards, making code reviews faster and more consistent.",
+      "Our AI analyzes your project description and automatically generates comprehensive Product Requirements Documents (PRDs) including user stories, technical specifications, and implementation details. It uses advanced AI models to understand context and create detailed, actionable documentation that guides your entire development process.",
   },
   {
-    question: "Can I integrate Pointer with my existing tools?",
+    question: "What AI providers does FlowSprint use?",
     answer:
-      "Yes! Pointer offers one-click integrations with popular development tools including GitHub, GitLab, VS Code, Slack, and many more. Our MCP connectivity allows you to easily manage and configure server access across your entire development stack.",
+      "FlowSprint leverages multiple AI providers including OpenRouter, Cerebras, and Meta Llama. Our intelligent routing system automatically selects the best AI service based on your request complexity, ensuring optimal performance and cost-efficiency. This multi-provider approach gives you the flexibility and reliability you need.",
   },
   {
     question: "What's included in the free plan?",
     answer:
-      "The free plan includes real-time code suggestions, basic integrations, single MCP server connection, up to 2 AI coding agents, and Vercel deployments with Pointer branding. It's perfect for individual developers getting started.",
+      "The free plan includes AI-powered PRD generation, interactive mindmap visualization, basic code generation, project management with CRUD operations, and access to our multi-provider AI routing. It's perfect for individual developers and small teams getting started with AI-assisted project planning.",
   },
   {
-    question: "How do parallel coding agents work?",
+    question: "How does the mindmap visualization work?",
     answer:
-      "Our parallel coding agents can work on different parts of your codebase simultaneously, solving complex problems faster than traditional single-threaded approaches. You can launch multiple agents to handle different tasks like bug fixes, feature development, and code optimization concurrently.",
+      "FlowSprint automatically generates interactive mindmaps that visualize your project structure, dependencies, and component relationships. You can explore your project architecture visually, see how different parts connect, and understand the big picture before diving into implementation. The mindmaps are generated in real-time from your project requirements.",
   },
   {
-    question: "Is my code secure with Pointer?",
+    question: "Is my project data secure with FlowSprint?",
     answer:
-      "Absolutely. We use enterprise-grade security measures including end-to-end encryption, secure data transmission, and compliance with industry standards. Your code never leaves your secure environment without your explicit permission, and we offer on-premises deployment options for enterprise customers.",
+      "Absolutely. We use enterprise-grade security measures including MongoDB Atlas for secure data storage, NextAuth for authentication, and secure API communications. Your project data is encrypted in transit and at rest. We also provide Google OAuth integration for secure, hassle-free authentication without storing passwords.",
   },
 ]
 
@@ -99,7 +99,7 @@ export function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm font-medium leading-[18.20px] break-words">
-            Everything you need to know about Pointer and how it can transform your development workflow
+            Everything you need to know about FlowSprint and how it can transform your development workflow
           </p>
         </div>
       </div>
