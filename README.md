@@ -43,28 +43,8 @@ FlowSprint implements a modern full-stack architecture with intelligent AI routi
 
 ### System Architecture Diagram
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    FlowSprint.AI Frontend                   │
-│                    (Next.js 14 - Vercel)                    │
-└─────────────────────┬───────────────────────────────────────┘
-                      │ HTTPS/REST API
-┌─────────────────────▼───────────────────────────────────────┐
-│              Enhanced MCP Gateway Backend                   │
-│              (Node.js + Express - Render)                   │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────────────────┐│
-│  │ Meta Llama  │ │  Cerebras   │ │    OpenRouter           ││
-│  │ (Primary)   │ │ (Fallback)  │ │    (API Gateway)        ││
-│  └─────────────┘ └─────────────┘ └─────────────────────────┘│
-│                                                             │
-│  Intelligent routing with load balancing & health checks    │
-└─────────────────────┬───────────────────────────────────────┘
-                      │
-┌─────────────────────▼───────────────────────────────────────┐
-│                  MongoDB Atlas Database                     │
-│          (Projects, Users, Session Management)              │
-└─────────────────────────────────────────────────────────────┘
-```
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2576c8c7-e8b2-4e79-ac5b-5ebf0e6db746" />
+
 
 ### Component Breakdown
 
