@@ -13,8 +13,8 @@ export function Header() {
   
   const navItems = [
     { name: "Features", href: "#features-section" },
-    { name: "Pricing", href: "#pricing-section" },
-    { name: "Testimonials", href: "#testimonials-section" },
+    { name: "FAQ", href: "#faq-section" },
+    { name: "Dashboard", href: '/Dashboard' },
   ]
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -31,7 +31,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
-            <span className="text-foreground text-xl font-semibold">FlowSprint</span>
+            <span className="text-foreground text-xl font-semibold">FlowSprint.AI</span>
           </div>
           <nav className="hidden md:flex items-center gap-2">
             {navItems.map((item) => (
@@ -49,7 +49,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           {status === "loading" ? (
             <div className="hidden md:block">
-              <Button variant="ghost" disabled className="px-4 py-2 rounded-full">
+              <Button variant="ghost" disabled className="px-4 py-2 rounded-full bg-white text-black">
                 Loading...
               </Button>
             </div>
@@ -64,9 +64,8 @@ export function Header() {
                 </Button>
               </Link>
               <Button
-                variant="ghost"
                 onClick={() => signOut()}
-                className="flex items-center gap-2 px-4 py-2 rounded-full font-medium"
+                className="flex items-center gap-2 px-4 py-2 rounded-full font-medium bg-secondary text-secondary-foreground hover:bg-secondary/90"
               >
                 <LogOut className="h-4 w-4" />
                 <span>Sign Out</span>
@@ -75,11 +74,10 @@ export function Header() {
           ) : (
             <Link href="/auth/signin" className="hidden md:block">
               <Button
-                variant="ghost"
-                className="flex items-center gap-2 text-foreground hover:text-foreground hover:bg-accent px-4 py-2 rounded-full font-medium"
+                className="flex items-center gap-2 px-4 py-2 rounded-full font-medium bg-secondary text-secondary-foreground hover:bg-secondary/90"
               >
                 <User className="h-5 w-5" />
-                <span>Sign In / Sign Up</span>
+                <span>Sign In</span>
               </Button>
             </Link>
           )}
@@ -108,15 +106,14 @@ export function Header() {
                 {session ? (
                   <div className="flex flex-col gap-4 mt-4">
                     <Link href="/Dashboard" className="w-full">
-                      <Button className="w-full flex items-center justify-center gap-2 px-6 py-2 rounded-full font-medium">
+                      <Button variant="outline" className="w-full flex items-center justify-center gap-2 px-6 py-2 rounded-full font-medium">
                         <User className="h-5 w-5" />
                         <span>Dashboard</span>
                       </Button>
                     </Link>
                     <Button
                       onClick={() => signOut()}
-                      variant="outline"
-                      className="w-full flex items-center justify-center gap-2 px-6 py-2 rounded-full font-medium"
+                      className="w-full flex items-center justify-center gap-2 px-6 py-2 rounded-full font-medium bg-secondary text-secondary-foreground hover:bg-secondary/90"
                     >
                       <LogOut className="h-5 w-5" />
                       <span>Sign Out</span>
@@ -126,7 +123,7 @@ export function Header() {
                   <Link href="/auth/signin" className="w-full mt-4">
                     <Button className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
                       <User className="h-5 w-5" />
-                      <span>Sign In / Sign Up</span>
+                      <span>Sign In</span>
                     </Button>
                   </Link>
                 )}

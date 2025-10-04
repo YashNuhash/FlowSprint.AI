@@ -88,6 +88,19 @@
   }
 }
 
+/* Glow border animation */
+@keyframes glow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
 .animate-float {
   animation: float 8s ease-in-out infinite;
 }
@@ -98,4 +111,8 @@
 
 .animate-float-reverse {
   animation: floatReverse 10s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow var(--duration, 10s) infinite linear;
 }

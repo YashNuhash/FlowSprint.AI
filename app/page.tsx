@@ -5,7 +5,7 @@ import { SocialProof } from "@/components/social-proof"
 import { BentoSection } from "@/components/bento-section"
 import { LargeTestimonial } from "@/components/large-testimonial"
 import { PricingSection } from "@/components/pricing-section"
-import { TestimonialGridSection } from "@/components/testimonial-grid-section"
+// import { TestimonialGridSection } from "@/components/testimonial-grid-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { FooterSection } from "@/components/footer-section"
@@ -31,23 +31,23 @@ export default function LandingPage() {
         <AnimatedSection id="features-section" className="relative z-10 max-w-[1320px] mx-auto mt-16" delay={0.2}>
           <BentoSection />
         </AnimatedSection>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+        {/* <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
           <LargeTestimonial />
-        </AnimatedSection>
-        <AnimatedSection
+        </AnimatedSection> */}
+        {/* <AnimatedSection
           id="pricing-section"
           className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
           delay={0.2}
         >
           <PricingSection />
-        </AnimatedSection>
-        <AnimatedSection
+        </AnimatedSection> */}
+        {/* <AnimatedSection
           id="testimonials-section"
           className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
           delay={0.2}
         >
           <TestimonialGridSection />
-        </AnimatedSection>
+        </AnimatedSection> */}
         <AnimatedSection id="faq-section" className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
           <FAQSection />
         </AnimatedSection>

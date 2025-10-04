@@ -103,12 +103,11 @@ export function CTASection() {
       </div>
       <div className="relative z-10 flex flex-col justify-start items-center gap-9 max-w-4xl mx-auto">
         <div className="flex flex-col justify-start items-center gap-4 text-center">
-          <h2 className="text-foreground text-4xl md:text-5xl lg:text-[68px] font-semibold leading-tight md:leading-tight lg:leading-[76px] break-words max-w-[435px]">
-            Coding made effortless
+          <h2 className="text-foreground text-4xl md:text-5xl lg:text-[68px] font-semibold leading-tight md:leading-tight lg:leading-[76px] whitespace-nowrap">
+            Turn Ideas Into Reality with AI
           </h2>
           <p className="text-muted-foreground text-sm md:text-base font-medium leading-[18.20px] md:leading-relaxed break-words max-w-2xl">
-            Hear how developers ship products faster, collaborate seamlessly, and build with confidence using Pointer's
-            powerful AI tools
+            Transform your ideas into production-ready code with FlowSprint's AI-powered PRD generation, mindmap visualization, and intelligent code generation
           </p>
         </div>
         <Link href="/Create">

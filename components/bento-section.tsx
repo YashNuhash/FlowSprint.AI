@@ -5,7 +5,13 @@ import MCPConnectivityIllustration from "./bento/mcp-connectivity-illustration" 
 import EasyDeployment from "./bento/easy-deployment"
 import ParallelCodingAgents from "./bento/parallel-agents" // Updated import
 
-const BentoCard = ({ title, description, Component }) => (
+interface BentoCardProps {
+  title: string;
+  description: string;
+  Component: React.ComponentType;
+}
+
+const BentoCard = ({ title, description, Component }: BentoCardProps) => (
   <div className="overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative">
     {/* Background with blur effect */}
     <div
@@ -36,33 +42,33 @@ const BentoCard = ({ title, description, Component }) => (
 export function BentoSection() {
   const cards = [
     {
-      title: "AI-powered code reviews.",
-      description: "Get real-time, smart suggestions for cleaner code.",
+      title: "AI-powered PRD generation",
+      description: "Generate comprehensive Product Requirements Documents instantly with AI.",
       Component: AiCodeReviews,
     },
     {
-      title: "Real-time coding previews",
-      description: "Chat, collaborate, and instantly preview changes together.",
+      title: "Real-time mindmap visualization",
+      description: "Visualize project structure and dependencies with interactive mindmaps.",
       Component: RealtimeCodingPreviews,
     },
     {
-      title: "One-click integrations",
-      description: "Easily connect your workflow with popular dev tools.",
+      title: "One-click code generation",
+      description: "Transform your ideas into production-ready code instantly.",
       Component: OneClickIntegrationsIllustration,
     },
     {
-      title: "Flexible MCP connectivity",
-      description: "Effortlessly manage and configure MCP server access.",
-      Component: MCPConnectivityIllustration, // Updated component
+      title: "Intelligent AI routing",
+      description: "Automatically routes to the best AI service for optimal results.",
+      Component: MCPConnectivityIllustration,
     },
     {
-      title: "Launch parallel coding agents", // Swapped position
-      description: "Solve complex problems faster with multiple AI agents.",
-      Component: ParallelCodingAgents, // Updated component
+      title: "Multi-provider AI support",
+      description: "Leverage OpenRouter, Cerebras, and Meta Llama for maximum flexibility.",
+      Component: ParallelCodingAgents,
     },
     {
-      title: "Deployment made easy", // Swapped position
-      description: "Go from code to live deployment on Vercel instantly.",
+      title: "Full-stack project management",
+      description: "Manage projects from concept to deployment with complete CRUD operations.",
       Component: EasyDeployment,
     },
   ]
@@ -77,8 +83,7 @@ export function BentoSection() {
               Empower Your Workflow with AI
             </h2>
             <p className="w-full max-w-[600px] text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-              Ask your AI Agent for real-time collaboration, seamless integrations, and actionable insights to
-              streamline your operations.
+              Describe Your Idea and let AI Generate the PRD, Mindmap & Starter Code — Ready to Run
             </p>
           </div>
         </div>
