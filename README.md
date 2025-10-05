@@ -9,7 +9,7 @@ An AI-powered platform that transforms project ideas into production-ready code 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Demo Video](#demo-videos)
+- [Demo Video](#demo-video)
 - [Architecture](#architecture)
 - [Key Features](#key-features)
 - [Tech Stack](#tech-stack)
