@@ -9,6 +9,7 @@ An AI-powered platform that transforms project ideas into production-ready code 
 ## Table of Contents
 
 - [Overview](#overview)
+- [Demo Video](#demo-videos)
 - [Architecture](#architecture)
 - [Key Features](#key-features)
 - [Tech Stack](#tech-stack)
@@ -16,7 +17,6 @@ An AI-powered platform that transforms project ideas into production-ready code 
 - [Environment Variables](#environment-variables)
 - [API Documentation](#api-documentation)
 - [Deployment](#deployment)
-- [Demo Videos](#demo-videos)
 - [Contributing](#contributing)
 - [License](#license)
 ---
@@ -34,6 +34,14 @@ Built for the Meta Llama Hackathon, FlowSprint demonstrates the practical applic
 **Live Demo:** [https://flow-sprint.vercel.app](https://flow-sprint.vercel.app)
 
 **Backend Repository:** [https://github.com/YashNuhash/FlowSprint.AI-Backend](https://github.com/YashNuhash/FlowSprint.AI-Backend)
+
+---
+
+## Demo Video: 
+
+Click the image above to watch the demo video
+
+[![XOR: Real-time Code Collaboration Tool](https://img.youtube.com/vi/u_CEb9HJ9zg/maxresdefault.jpg)](https://youtu.be/u_CEb9HJ9zg)
 
 ---
 
@@ -824,33 +832,6 @@ Already covered in Getting Started, but for production:
 
 ---
 
-## Demo Videos
-
-### Main Architecture Demo
-
-**Duration:** 4 minutes  
-**Link:** Watch on YouTube (add your link)
-
-**Covers:**
-- System architecture walkthrough
-- Enhanced MCP Gateway explanation
-- Meta Llama integration details
-- Feature demonstrations
-- Code walkthrough
-
-### Full Application Build Demo
-
-**Duration:** 7 minutes  
-**Link:** Watch on YouTube (add your link)
-
-**Covers:**
-- Creating a Task Manager app from scratch using FlowSprint
-- Running generated code locally
-- Testing all features (authentication, CRUD operations)
-- Deployment to production
-
----
-
 ## Project Structure
 
 ### Frontend Structure
@@ -1417,46 +1398,6 @@ npm run test
 npm run test:e2e
 ```
 
-### Test Coverage
-
-```bash
-# Generate coverage report
-npm run test:coverage
-```
-
-### Manual Testing Checklist
-
-**Frontend:**
-- [ ] Landing page loads correctly
-- [ ] Sign in with Google works
-- [ ] Create project form validation
-- [ ] Mindmap renders and is interactive
-- [ ] PRD displays correctly
-- [ ] Code files can be copied/downloaded
-- [ ] Dashboard shows all projects
-- [ ] Project deletion works with confirmation
-- [ ] Responsive on mobile devices
-
-**Backend:**
-- [ ] Health check endpoint returns 200
-- [ ] AI providers health check works
-- [ ] Project creation saves to database
-- [ ] Project retrieval filters by user
-- [ ] Project update modifies database
-- [ ] Project deletion removes from database
-- [ ] Authentication middleware blocks unauthorized requests
-- [ ] Rate limiting prevents abuse
-- [ ] Error handling returns proper status codes
-
-**Integration:**
-- [ ] Frontend can create projects via backend
-- [ ] AI generation completes successfully
-- [ ] Generated code is valid and runnable
-- [ ] Database operations reflect in frontend
-- [ ] Authentication persists across sessions
-
----
-
 ## Troubleshooting
 
 ### Common Issues
@@ -1704,10 +1645,8 @@ Built for the **Meta Llama Hackathon** to showcase practical applications of lar
 
 - **GitHub:** [@YashNuhash](https://github.com/YashNuhash)
 - **Email:** nuhashroxme@gmail.com
-- **Twitter:** [@YashNuhash](https://twitter.com/YashNuhash)
-- **LinkedIn:** [Ashraful Nuhash](https://linkedin.com/in/ashraful-nuhash)
-
-**Live Application:** [https://flow-sprint.vercel.app](https://flow-sprint.vercel.app)
+- **Twitter:** [@YashNuhash](https://x.com/YashNuhash)
+- **LinkedIn:** [Ashraful Nuhash](https://www.linkedin.com/in/ashraful-nuhash-2192871b2)
 
 **Repositories:**
 - Frontend: [https://github.com/YashNuhash/FlowSprint.AI](https://github.com/YashNuhash/FlowSprint.AI)
